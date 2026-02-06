@@ -34,9 +34,6 @@ public class ServerRest {
             HttpServer server = HttpServer.create(new InetSocketAddress(porta), 0);
             
             // Registra gli handler per gli endpoint
-            server.createContext("/api/calcola/post", new PostHandler());
-            server.createContext("/api/calcola/get", new GetHandler());
-            
             //V1
             server.createContext("/api/calcola/post", new PostHandlerV1());
             server.createContext("/api/calcola/get", new GetHandlerV1());
