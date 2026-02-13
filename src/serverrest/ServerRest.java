@@ -73,6 +73,7 @@ public class ServerRest {
             System.out.println();
             System.out.println("Unità di misura supportate:");
             System.out.println("  MT,YD");
+            System.out.println();
             System.out.println("Premi Ctrl+C per fermare il server");
             System.out.println("==============================================");
 
@@ -99,6 +100,8 @@ public class ServerRest {
         Map endpoints = new HashMap<>();
         endpoints.put("POST", "/api/calcola/post");
         endpoints.put("GET", "/api/calcola/get?operando1=X&operando2=Y&operatore=OP");
+        endpoints.put("POST", "/api/converti/post");
+        endpoints.put("GET", "/api/converti/get?unitaMisura1=X&unitaMisura2=Y&operando=OP");
         info.put("endpoints", endpoints);
 
         Map operatori = new HashMap<>();
@@ -109,6 +112,8 @@ public class ServerRest {
         operatori.put("potenza", "POTENZA o ^");
         operatori.put("radice", "RADICE o √");
         operatori.put("modulo", "MODULO o ||");
+        operatori.put("mt", "MT");
+        operatori.put("yd", "YD");
         
         info.put("operatori_supportati", operatori);
 
