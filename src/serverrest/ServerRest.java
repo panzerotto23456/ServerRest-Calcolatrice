@@ -42,6 +42,10 @@ public class ServerRest {
 // Endpoint legacy (compatibilità)
             server.createContext("/api/calcola/post", new PostHandlerV1());
             server.createContext("/api/calcola/get", new GetHandlerV1());
+            
+// API V3
+            server.createContext("/api/v3/converti/post", new PostHandlerV3());
+            server.createContext("/api/v3/converti/get", new GetHandlerV3());
 
             // Endpoint di benvenuto
             server.createContext("/", ServerRest::gestisciBenvenuto);
@@ -64,6 +68,11 @@ public class ServerRest {
             System.out.println("Operatori supportati:");
             System.out.println("  SOMMA, SOTTRAZIONE, MOLTIPLICAZIONE, DIVISIONE, POTENZA, RADICE, MODULO");
             System.out.println();
+            System.out.println("  - POST: http://localhost:" + porta + "/api/v3/converti/post");
+            System.out.println("  - GET:  http://localhost:" + porta + "/api/v3/converti/get");
+            System.out.println();
+            System.out.println("Unità di misura supportate:");
+            System.out.println("  MT,YD");
             System.out.println("Premi Ctrl+C per fermare il server");
             System.out.println("==============================================");
 

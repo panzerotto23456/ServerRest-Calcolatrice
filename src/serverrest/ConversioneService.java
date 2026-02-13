@@ -19,53 +19,28 @@ public class ConversioneService {
      * @return Il risultato dell'operazione
      * @throws IllegalArgumentException se l'operatore non è valido o divisione per zero
      */
-    public static double calcola(double operando1, double operando2, String operatore) 
+    public static double calcola( String unitaMisura1, String unitaMisura2, double operando) 
             throws IllegalArgumentException {
         
-        if (operatore == null || operatore.trim().isEmpty()) {
-            throw new IllegalArgumentException("Operatore non può essere vuoto");
+        if (unitaMisura1 == null || unitaMisura1.trim().isEmpty()||unitaMisura2 == null || unitaMisura2.trim().isEmpty()) {
+            throw new IllegalArgumentException("Unità di misura non può essere vuoto");
         }
         
         // Convertiamo l'operatore in maiuscolo per gestire input case-insensitive
-        String op = operatore.toUpperCase().trim();
+        String op = unitaMisura1.toUpperCase().trim();
         
         switch (op) {
-            case "SOMMA":
-            case "+":
-                return operando1 + operando2;
+            case "MT":
+                return operando*1.09361;
                 
-            case "SOTTRAZIONE":
-            case "-":
-                return operando1 - operando2;
-                
-            case "MOLTIPLICAZIONE":
-            case "*":
-            case "X":
-                return operando1 * operando2;
-                
-            case "DIVISIONE":
-            case "/":
-                if (operando2 == 0) {
-                    throw new IllegalArgumentException("Divisione per zero non consentita");
-                }
-                return operando1 / operando2;
-                
-            case "POTENZA":
-            case "^":
-                return Math.pow(operando1, operando2)  ;
-                
-            case "RADICE":
-            case "√":
-                return Math.pow(operando1, 1.0 / operando2);
-                
-            case "MODULO":
-            case "||":
-                return operando1 % operando2;
+            case "YD":
+                return operando*0.9144;
+
                 
             default:
                 throw new IllegalArgumentException(
-                    "Operatore non valido: " + operatore + 
-                    ". Operatori consentiti: SOMMA, SOTTRAZIONE, MOLTIPLICAZIONE, DIVISIONE, POTENZA, RADICE, MODULO"
+                    "unita di Misura non valido: " + unitaMisura1 + 
+                    ". unita di Misura consentite: MT,YD"
                 );
         }
     }

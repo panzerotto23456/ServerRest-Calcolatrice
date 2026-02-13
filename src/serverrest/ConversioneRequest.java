@@ -19,7 +19,7 @@ public class ConversioneRequest {
     
     // Costruttore con parametri
 
-    public ConversioneRequest(double operando, String unitaMisura1, String unitaMisura2) {
+    public ConversioneRequest( String unitaMisura1, String unitaMisura2, double operando) {
         this.operando = operando;
         this.unitaMisura1 = unitaMisura1;
         this.unitaMisura2 = unitaMisura2;
@@ -52,7 +52,7 @@ public class ConversioneRequest {
 
     @Override
     public String toString() {
-        return "OperazioneRequest{" +
+        return "ConversioneRequest{" +
                 "unita1=" + unitaMisura1+
                 ",  unita2='" + unitaMisura2 +
                 ", operando= " + operando + "\n" +
